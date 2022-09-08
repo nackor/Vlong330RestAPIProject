@@ -53,6 +53,13 @@ namespace VlongFinalProject.Controllers
         public void Put(int id, [FromBody] User value)
         {
 
+            var contact = contacts.FirstOrDefault(t => t.Id == id);
+
+            if (contact != null)
+            {
+                contact.Name = value.Name;
+                contact.Phones = value.Phones;
+            }
         }
 
         // DELETE api/<UserController>/5
