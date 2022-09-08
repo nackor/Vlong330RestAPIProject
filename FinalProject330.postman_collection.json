@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "37148524-f1ca-4dd1-997c-c6237a80b5b3",
+		"name": "FinalProject330",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23229134"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5210/api/User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5210/api/User",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5210",
+					"path": [
+						"api",
+						"User"
+					]
+				},
+				"description": "Get all users"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5210/api/User/1000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5210/api/User/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5210",
+					"path": [
+						"api",
+						"User",
+						"1000"
+					]
+				},
+				"description": "get a user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5210/api/User/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5210/api/User/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5210",
+					"path": [
+						"api",
+						"User",
+						""
+					]
+				},
+				"description": "Post to create a user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5210/api/User/1000",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"email\": \"old_user@example.com\",\r\n    \"password\": \"new_pass\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5210/api/User/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5210",
+					"path": [
+						"api",
+						"User",
+						"1000"
+					]
+				},
+				"description": "update first user with a put"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5210/api/User/1000",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5210/api/User/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5210",
+					"path": [
+						"api",
+						"User",
+						"1000"
+					]
+				},
+				"description": "delete first user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5210/api/Token/vlong@notanemail/password123",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5210/api/Token/vlong@notanemail/password123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5210",
+					"path": [
+						"api",
+						"Token",
+						"vlong@notanemail",
+						"password123"
+					]
+				},
+				"description": "get a token for an email/password"
+			},
+			"response": []
+		}
+	]
+}
