@@ -40,7 +40,7 @@ namespace VlongFinalProject.Controllers
             int userID = 1000;
             if(users.Count != 0)
             {
-                userID = users[-1].UserID + 1;
+                userID = users[users.Count-1].UserID + 1;
             }
             
             value.UserID = userID;
@@ -50,8 +50,9 @@ namespace VlongFinalProject.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] User value)
         {
+
         }
 
         // DELETE api/<UserController>/5
