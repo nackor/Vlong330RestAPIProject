@@ -64,14 +64,25 @@ namespace VlongFinalProject.Controllers
             }
             else
             {
-                return BadRequest(String.Format("User {0} not found",id));
+                return NotFound();
             }
         }
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            User found = users.FirstOrDefault(t => t.UserID == id);
+            if(found != null)
+            {
+                users.Remove(found);
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+
         }
     }
 }
