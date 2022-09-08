@@ -16,16 +16,12 @@ namespace VlongFinalProject.Controllers
         public dynamic Post([FromBody] TokenRequest tokenRequest)
         {
             var token = TokenHelper.GetToken(tokenRequest.UserName, tokenRequest.Password);
+            if(token == null)
+            {
+                return Unauthorized();
+            }
             return new { Token = token };
         }
-
-        [HttpGet]
-        public dynamic Get(string userName, string password)
-        {
-            var token = TokenHelper.GetToken(userName, password);
-            return new { Token = token };
-        }
-
 
     }
 }
