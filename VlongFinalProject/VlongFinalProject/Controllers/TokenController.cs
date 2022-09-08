@@ -10,13 +10,12 @@ namespace VlongFinalProject.Controllers
     public class TokenController : ControllerBase
     {
 
-
-
-        [HttpPost]
-        public dynamic Post([FromBody] TokenRequest tokenRequest)
+        [HttpGet]
+        [Route("{email}/{password}")]
+        public dynamic Get(string email, string password)
         {
-            var token = TokenHelper.GetToken(tokenRequest.UserName, tokenRequest.Password);
-            if(token == null)
+            var token = TokenHelper.GetToken(email, password);
+            if (token == null)
             {
                 return Unauthorized();
             }
