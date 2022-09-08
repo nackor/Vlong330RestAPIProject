@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using VlongFinalProject.Models;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,6 +9,9 @@ namespace VlongFinalProject.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+
+        public statis List<User> users = new List<User>();
+
         // GET: api/<UserController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -24,7 +28,7 @@ namespace VlongFinalProject.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] User value)
         {
         }
 
