@@ -50,15 +50,20 @@ namespace VlongFinalProject.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] User value)
+        public IActionResult Put(int id, [FromBody] User value)
         {
 
-            var contact = contacts.FirstOrDefault(t => t.Id == id);
+            User toUpdate = users.FirstOrDefault(t => t.UserID == id);
 
-            if (contact != null)
+            if (toUpdate != null)
             {
-                contact.Name = value.Name;
-                contact.Phones = value.Phones;
+                toUpdate.Email = value.Email;
+                toUpdate.Password = value.Password;
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
             }
         }
 
