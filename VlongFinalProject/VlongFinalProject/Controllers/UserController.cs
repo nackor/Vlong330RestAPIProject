@@ -35,7 +35,7 @@ namespace VlongFinalProject.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public void Post([FromBody] User value)
+        public IActionResult Post([FromBody] User value)
         {
             int userID = 1000;
             if(users.Count != 0)
@@ -46,6 +46,7 @@ namespace VlongFinalProject.Controllers
             value.UserID = userID;
             value.Created = DateTime.Now;
             users.Add(value);
+            return StatusCode(201);
         }
 
         // PUT api/<UserController>/5
@@ -63,7 +64,7 @@ namespace VlongFinalProject.Controllers
             }
             else
             {
-                return BadRequest();
+                return BadRequest(String.Format("User {0} not found",id));
             }
         }
 
