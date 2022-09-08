@@ -1,4 +1,6 @@
-﻿using System;
+﻿using VlongFinalProject.Controllers;
+using VlongFinalProject.Models;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,13 +19,23 @@ namespace VlongFinalProject
 
     public static class TokenHelper
     {
-        public static string GetToken(string userName, string password)
+        public static string GetToken(string email, string password)
         {
-            // do a db lookup to confirm the userName and password
+            //check array of users in usercontroller
+            User foundUser = UserController.users.FirstOrDefault(t => t.Email == email);
+            if (foundUser == null)
+            {
+                return null;
+            }
+            if(foundUser.Password != password)
+            {
+                return null;
+            }
+
             // create the token
             var token = new Token
             {
-                UserId = 10,
+                UserId = foundUser.UserID,
                 Expires = DateTime.UtcNow.AddMinutes(1),
             };
             var jsonString = JsonConvert.SerializeObject(token);

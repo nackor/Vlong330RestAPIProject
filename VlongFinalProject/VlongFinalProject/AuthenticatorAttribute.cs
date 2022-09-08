@@ -26,7 +26,7 @@ namespace VlongFinalProject
                 if (authorization.StartsWith(BEARER))
                 {
                     var tokenString = authorization.Substring(BEARER.Length).Trim();
-                    var token = TokenHelper.Token(tokenString);
+                    var token = TokenHelper.DecodeToken(tokenString);
                     if (token.Expires > DateTime.UtcNow)
                     {
                         valid = true;
