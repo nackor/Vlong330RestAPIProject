@@ -11,7 +11,7 @@ namespace VlongFinalProject.Controllers
     {
 
         public static List<User> users = new List<User>();
-
+        
         // GET: api/<UserController>
         [HttpGet]
         public IEnumerable<User> Get()
