@@ -10,26 +10,42 @@ namespace VlongFinalProject.Controllers
     public class UserController : ControllerBase
     {
 
-        public statis List<User> users = new List<User>();
+        public static List<User> users = new List<User>();
 
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<User> Get()
         {
-            return new string[] { "value1", "value2" };
+            return users;
         }
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            User user = users.FirstOrDefault(t => t.UserID == id);
+
+            if (user == null)
+            {
+                return NotFound(null);
+            }
+
+            return Ok(user);
         }
 
         // POST api/<UserController>
         [HttpPost]
         public void Post([FromBody] User value)
         {
+            int userID = 1000;
+            if(users.Count != 0)
+            {
+                userID = users[-1].UserID + 1;
+            }
+            
+            value.UserID = userID;
+            value.Created = DateTime.Now;
+            users.Add(value);
         }
 
         // PUT api/<UserController>/5
